@@ -15,6 +15,6 @@ window.addEventListener("message", function(event) {
             .replaceAll(" ", "_")
         let encoded = encodeURIComponent(sanitized)
 
-        chrome.runtime.sendMessage({encodedTitle: encoded, storyletId: event.data.storyletId}, () => {});
+        chrome.runtime.sendMessage({encodedTitle: encoded, storyletId: event.data.storyletId, category: event.data.category}, () => {});
     }
 });

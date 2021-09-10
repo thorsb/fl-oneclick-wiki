@@ -75,7 +75,8 @@
                     window.postMessage({
                         action: "openInFLWiki",
                         title: title,
-                        storyletId: storyletID
+                        storyletId: storyletID,
+                        category: "Cards||Storylets"
                     })
                 })
                 .catch(error => {
@@ -83,7 +84,8 @@
                     window.postMessage({
                         action: "openInFLWiki",
                         title: title,
-                        storyletId: null
+                        storyletId: null,
+                        category: "Cards||Storylets"
                     })
                 })
         }
@@ -145,6 +147,12 @@
 
                     for (const branchContainer of branches) {
                         const branchId = branchContainer.attributes["data-branch-id"].value;
+                        let category = null;
+                        if (branchContainer.classList.contains("storylet")) {
+                            category = "Cards||Storylets";
+                        } else if (branchContainer.classList.contains("branch")) {
+                            category = "Actions";
+                        }
                         const branchHeader = branchContainer.querySelector("h2[class*='branch__title'], h2[class*='storylet__heading']");
                         if (!branchHeader) {
                             continue;
@@ -162,6 +170,7 @@
                                 action: "openInFLWiki",
                                 title: branchHeader.textContent,
                                 storyletId: branchId,
+                                category: category
                             })
                         });
 
