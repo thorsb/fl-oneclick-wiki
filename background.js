@@ -42,6 +42,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             });
     } else {
         console.debug("No ID found for the storylet, falling back to using title.")
+        prompt(`ID not found on the wiki, falling back to title.\nCopy this text into template to add ID:`, `|ID = ${request.storyletId}`);
         openNewTab(destination);
     }
 
