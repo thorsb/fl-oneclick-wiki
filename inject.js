@@ -151,7 +151,7 @@
                         if (branchContainer.classList.contains("storylet")) {
                             category = "Cards||Storylets";
                         } else if (branchContainer.classList.contains("branch")) {
-                            category = "Actions";
+                            category = "Actions||Social Actions";
                         }
                         const branchHeader = branchContainer.querySelector("h2[class*='branch__title'], h2[class*='storylet__heading']");
                         if (!branchHeader) {
